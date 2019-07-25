@@ -341,7 +341,7 @@ open class Floaty: UIView {
     setShadow()
   }
   
-  func addFloatyBtn(){
+  public func addFloatyBtn(){
     let btn = UIButton(frame: circleLayer.frame)
     btn.addTarget(self, action: #selector(didHitFloatyBtn), for: .touchUpInside)
     self.addSubview(btn)
