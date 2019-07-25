@@ -73,6 +73,8 @@ open class FloatyItem: UIView {
     }
   }
   
+  open var itemIndex: Int? = nil
+  
   /**
    Reference to parent
    */
@@ -88,6 +90,7 @@ open class FloatyItem: UIView {
    */
   fileprivate var tintLayer: CAShapeLayer = CAShapeLayer()
   
+  @IBOutlet open weak var itemDelegate: FloatyItemDelegate?
   /**
    Item's title label position.
    deafult is left
@@ -284,6 +287,19 @@ open class FloatyItem: UIView {
       }
     }
   }
+  
+  @objc open func addItemBtn(){
+    let btn = UIButton(frame: circleLayer.frame)
+    btn.addTarget(self, action: #selector(didHitItem), for: .touchUpInside)
+    self.addSubview(btn)
+  }
+  
+  @objc func didHitItem(){
+    if let index = itemIndex {
+      itemDelegate?.didSelectItem?(index)
+    }
+  }
+  
 }
 
 func + (left: CGPoint, right: CGPoint) -> CGPoint {

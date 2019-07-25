@@ -41,7 +41,9 @@ import Foundation
    */
   @objc optional func floatyClosed(_ floaty: Floaty)
   
-  @objc optional func didSelectFloaty(_ floaty: Floaty)
-  
+  @objc optional func didSelectItem(_ index: Int)
+}
+
+@objc public protocol FloatyItemDelegate {
   @objc optional func didSelectItem(_ index: Int)
 }

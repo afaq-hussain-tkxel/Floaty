@@ -613,6 +613,22 @@ open class Floaty: UIView {
     return item
   }
   
+  
+  @discardableResult
+  @objc open func addItem(icon: UIImage?, titlePosition: FloatyItemLabelPositionType = .left, index: Int, handler: @escaping ((FloatyItem) -> Void)) -> FloatyItem {
+    let item = FloatyItem()
+    itemDefaultSet(item)
+    item.titleLabelPosition = titlePosition
+    item.title = ""
+    item.icon = icon
+    item.handler = handler
+    item.itemIndex = index
+    item.addItemBtn()
+    item.itemDelegate = self
+    addItem(item: item)
+    return item
+  }
+  
   /**
    Add item with icon.
    */
@@ -1323,3 +1339,9 @@ extension Floaty {
   }
 }
 
+extension Floaty : FloatyItemDelegate {
+  public func didSelectItem(_ index: Int) {
+    close()
+    fabDelegate?.didSelectItem?(index)
+  }
+}
