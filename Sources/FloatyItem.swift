@@ -291,8 +291,19 @@ open class FloatyItem: UIView {
   @objc open func addItemBtn(){
     let btn = UIButton(frame: CGRect(x: 0,y: 0,width: 42,height: 42))
     btn.backgroundColor = .clear
+    if let index = self.itemIndex {
+      btn.tag = index
+    }
     btn.addTarget(self, action: #selector(didHitItem), for: .touchUpInside)
     self.addSubview(btn)
+  }
+  
+  @objc open func removeItemBtn(){
+    if let index = self.itemIndex {
+      if let viewWithTag = self.viewWithTag(index) {
+        viewWithTag.removeFromSuperview()
+      }
+    }
   }
   
   @objc func didHitItem(){
