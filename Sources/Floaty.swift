@@ -618,7 +618,8 @@ open class Floaty: UIView {
     addItem(item: item)
     return item
   }
-  @objc open func addItem(icon: UIImage?, titlePosition: FloatyItemLabelPositionType = .left, index: Int){
+  @discardableResult
+  @objc open func addItem(icon: UIImage?, titlePosition: FloatyItemLabelPositionType = .left, index: Int)->FloatyItem{
     let item = FloatyItem()
     itemDefaultSet(item)
     item.titleLabelPosition = titlePosition
@@ -627,6 +628,7 @@ open class Floaty: UIView {
     item.itemIndex = index
     item.itemDelegate = self
     addItem(item: item)
+     return item
   }
   
   /**
