@@ -40,4 +40,8 @@ import Foundation
    This method has been deprecated. Use floatyWillClose and floatyDidClose instead.
    */
   @objc optional func floatyClosed(_ floaty: Floaty)
+  
+  @objc optional func didSelectFloaty(_ floaty: Floaty)
+  
+  @objc optional func didSelectItem(_ index: Int)
 }
