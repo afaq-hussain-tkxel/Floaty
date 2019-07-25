@@ -293,7 +293,6 @@ open class FloatyItem: UIView {
     btn.backgroundColor = .clear
     btn.addTarget(self, action: #selector(didHitItem), for: .touchUpInside)
     self.addSubview(btn)
-    self.bringSubviewToFront(btn)
   }
   
   @objc func didHitItem(){

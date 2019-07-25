@@ -352,7 +352,7 @@ open class Floaty: UIView {
   }
   
   @objc open func addActionButtonsToItems(){
-    for item in items {
+    for item in self.items {
       item.addItemBtn()
     }
   }
