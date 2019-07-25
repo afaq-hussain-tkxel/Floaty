@@ -289,7 +289,7 @@ open class FloatyItem: UIView {
   }
   
   @objc open func addItemBtn(){
-    let btn = UIButton(frame: circleLayer.frame)
+    let btn = UIButton(frame: self.frame)
     btn.addTarget(self, action: #selector(didHitItem), for: .touchUpInside)
     self.addSubview(btn)
   }
