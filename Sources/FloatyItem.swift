@@ -289,9 +289,11 @@ open class FloatyItem: UIView {
   }
   
   @objc open func addItemBtn(){
-    let btn = UIButton(frame: self.frame)
+    let btn = UIButton(frame: CGRect(x: 0,y: 0,width: 42,height: 42))
+    btn.backgroundColor = .clear
     btn.addTarget(self, action: #selector(didHitItem), for: .touchUpInside)
     self.addSubview(btn)
+    self.bringSubviewToFront(btn)
   }
   
   @objc func didHitItem(){
